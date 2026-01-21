@@ -1,6 +1,3 @@
-const localStorageKeys = {
-    lastVelocity: 'speed-last-velocity'
-}
 let lastVel = 1.0;
 
 /**
@@ -14,14 +11,9 @@ const renderSpeedController = (node) => {
         return
     }
 
-
     node.setAttribute(ATTRIBUTE_KEY, true);
-    const lastVelStorageString = localStorage.getItem(localStorageKeys.lastVelocity);
-    if (lastVelStorageString) {
-        const parsedLast = JSON.parse(lastVelStorageString);
-        lastVel = parsedLast;
-        node.playbackRate = parsedLast || '1.0';
-    }
+
+
 
     const containerDiv = document.createElement("div");
     containerDiv.style.cssText = `
@@ -102,7 +94,6 @@ color: rgba(255, 255, 255, 0.5);
         }
         handlers[e.key.toUpperCase()]?.();
         updateSpeedSpan(node.playbackRate);
-        localStorage.setItem(localStorageKeys.lastVelocity, JSON.stringify(node.playbackRate));
     })
 }
 
