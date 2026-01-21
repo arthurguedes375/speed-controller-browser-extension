@@ -1,0 +1,18 @@
+{
+    "name": "Video Speed Controller",
+    "description": "Change all the video playbacks speed.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_icon": "assets/icon.png"
+    },
+    "content_scripts": [
+        {
+            "js": ["src/content-scripts/load.js"],
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ]
+        }
+    ]
+}
