@@ -26,8 +26,8 @@ position: relative;
     const controllerDiv = document.createElement('div');
     controllerDiv.style.cssText = `
     position: absolute;
-    left: 300px;
-    top: 25px;
+    left: 250px;
+    top: 50px;
     padding: 5px 10px;
 
     border-radius: 10px;
