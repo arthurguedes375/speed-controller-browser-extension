@@ -20,6 +20,7 @@ const renderSpeedController = (node) => {
 width: fit-content;
 height: fit-content;
 position: relative;
+pointer-events: none;
     `;
     node.parentElement.appendChild(containerDiv)
 
@@ -36,6 +37,7 @@ position: relative;
     display: flex;
     flex-direction: row;
     z-index: 50;
+    pointer-events: none;
     `;
     const playbackRateSpan = document.createElement('span');
     playbackRateSpan.style.cssText = `
