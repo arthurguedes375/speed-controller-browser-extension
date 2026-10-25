@@ -5,7 +5,8 @@
     const FAST_SPEED = 2.0;
     const MIN_SPEED = 0.2;
     const SPEED_STEP = 0.1;
-    const EDGE_GAP = 12;
+    const EDGE_GAP_Y = 53;
+    const EDGE_GAP_X = 12;
     const MIN_VIDEO_WIDTH = 70;
     const MIN_VIDEO_HEIGHT = 40;
 
@@ -123,7 +124,7 @@
 
         badge.className = 'badge';
         badge.textContent =
-            `${Number(video.playbackRate).toFixed(1)}×`;
+            `${Number(video.playbackRate).toFixed(1)}`;
 
         shadow.append(style, badge);
 
@@ -180,13 +181,13 @@
         const rect = video.getBoundingClientRect();
 
         const left = Math.max(
-            EDGE_GAP,
-            rect.left + EDGE_GAP
+            EDGE_GAP_X,
+            rect.left + EDGE_GAP_X,
         );
 
         const top = Math.max(
-            EDGE_GAP,
-            rect.top + EDGE_GAP
+            EDGE_GAP_Y,
+            rect.top + EDGE_GAP_Y,
         );
 
         setImportantStyle(host, 'display', 'block');
@@ -259,7 +260,7 @@
         }
 
         state.badge.textContent =
-            `${Number(video.playbackRate).toFixed(1)}×`;
+            `${Number(video.playbackRate).toFixed(1)}`;
     }
 
     /**
@@ -365,7 +366,7 @@
 
         state.onRateChange = () => {
             badge.textContent =
-                `${Number(video.playbackRate).toFixed(1)}×`;
+                `${Number(video.playbackRate).toFixed(1)}`;
         };
 
         state.onPlay = () => {
