@@ -353,7 +353,7 @@
             host,
             badge,
 
-            restoreSpeed:
+            restoreSpeed: 4.0 ||
                 Number(video.playbackRate) || NORMAL_SPEED,
 
             presetActive: false,
