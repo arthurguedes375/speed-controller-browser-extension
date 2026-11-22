@@ -26,6 +26,16 @@ These shortcuts apply to the currently playing video on the page:
 
 The extension remembers the *last non‑preset speed* so toggling feels natural instead of destructive.
 
+### Temporary speed controls
+
+These shortcuts temporarily override the playback speed while the key is held. Releasing the key restores the previous speed.
+
+- **`E`** → Temporarily switch to **1.0× speed**.
+- **`V`** → Temporarily switch to **2.0× speed**.
+- **`C`** → Temporarily switch to your **last saved non-preset speed**.
+
+The extension remembers the *last non-preset speed*, so switching between playback presets does not overwrite your original speed.
+
 ---
 
 ## Installation (Chrome, Brave, Edge)
