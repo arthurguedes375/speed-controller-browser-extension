@@ -312,6 +312,24 @@
         );
     }
 
+    function holdKey(video, state, speed) {
+        state.previously_holding_speed = video.playbackRate;
+        setPlaybackRate(
+            video,
+            state,
+            speed,
+        );
+    }
+
+    function releaseKey(video, state) {
+        setPlaybackRate(
+            video,
+            state,
+            state.previously_holding_speed
+        );
+
+    }
+
     /**
      * Increase or decrease playback speed.
      */
@@ -709,6 +727,7 @@
         return newestVideo;
     }
 
+
     /**
      * Install exactly one keyboard handler for the whole extension.
      */
@@ -736,12 +755,12 @@
 
             const key = event.key.toLowerCase();
 
-            if (!['g', 'r', 'd', 's'].includes(key)) {
+            if (!['g', 'r', 'd', 's', 'v', 'e', 'c'].includes(key)) {
                 return;
             }
 
-            // Does not toggle very fast between 'g' and 'r'
-            if (event.repeat && ['g', 'r'].includes(key)) {
+            // Does not toggle very fast between 'g' and 'r', and 'v' and 'e'
+            if (event.repeat && ['g', 'r', 'v', 'e', 'c'].includes(key)) {
                 return
             }
 
@@ -773,6 +792,17 @@
                         NORMAL_SPEED
                     );
                     break;
+                case 'v':
+                    holdKey(video, state, FAST_SPEED)
+                    break;
+
+                case 'e':
+                    holdKey(video, state, FAST_SPEED)
+                    break;
+
+                case 'c':
+                    holdKey(video, state, state.restoreSpeed)
+                    break;
 
                 case 'd':
                     adjustSpeed(
@@ -789,6 +819,69 @@
                         -SPEED_STEP
                     );
                     break;
+            }
+
+            /*
+             * Consume recognized shortcuts only after a video has been
+             * selected. Mouse and video-control events remain untouched.
+             */
+            event.preventDefault();
+            event.stopPropagation();
+        },
+        true
+    );
+
+    /**
+     * Install exactly one keyboard handler for the whole extension.
+     */
+    document.addEventListener(
+        'keyup',
+        (event) => {
+            /*
+             * Do not intercept:
+             * - Auto-repeated keys
+             * - IME composition
+             * - Ctrl, Alt, or Meta shortcuts
+             * - Typing in an input or editable field
+             */
+            if (
+                // event.repeat ||
+                event.isComposing ||
+                event.ctrlKey ||
+                event.altKey ||
+                event.metaKey ||
+                isTypingContext(event)
+            ) {
+                return;
+            }
+
+
+            const key = event.key.toLowerCase();
+
+            if (!['v', 'e', 'c'].includes(key)) {
+                return;
+            }
+
+            // Does not toggle very fast between 'v' and 'e'
+            if (event.repeat && ['v', 'e', 'c'].includes(key)) {
+                return
+            }
+
+            const video = getShortcutVideo();
+
+            if (!video) {
+                return;
+            }
+
+            const state = videoStates.get(video);
+
+            if (!state) {
+                return;
+            }
+
+
+            if (key === 'v' || key === 'e' || key === 'c') {
+                releaseKey(video, state)
             }
 
             /*
