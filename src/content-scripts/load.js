@@ -797,7 +797,7 @@
                     break;
 
                 case 'e':
-                    holdKey(video, state, FAST_SPEED)
+                    holdKey(video, state, NORMAL_SPEED)
                     break;
 
                 case 'c':
