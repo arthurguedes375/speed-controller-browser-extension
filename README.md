@@ -12,16 +12,16 @@ This project was made for fun in almost an hour so don't judge me for the funny 
 
 These shortcuts apply to the currently playing video on the page:
 
-- **`D`** → Increase playback speed by **+0.1×**  
+- **`d`** → Increase playback speed by **+0.1×**  
   Useful for slowly ramping up comprehension without sounding like chipmunks.
 
-- **`S`** → Decrease playback speed by **−0.1×**  
+- **`s`** → Decrease playback speed by **−0.1×**  
   Handy when a speaker suddenly decides to outrun causality.
 
-- **`R`** → Toggle **1.0× (normal speed)**  
+- **`r`** → Toggle **1.0× (normal speed)**  
   Press again to return to your previous speed.
 
-- **`G`** → Toggle **2.0× speed**  
+- **`g`** → Toggle **2.0× speed**  
   Press again to snap back to your last speed.
 
 The extension remembers the *last non‑preset speed* so toggling feels natural instead of destructive.
@@ -30,9 +30,9 @@ The extension remembers the *last non‑preset speed* so toggling feels natural 
 
 These shortcuts temporarily override the playback speed while the key is held. Releasing the key restores the previous speed.
 
-- **`E`** → Temporarily switch to **1.0× speed**.
-- **`V`** → Temporarily switch to **2.0× speed**.
-- **`C`** → Temporarily switch to your **last saved non-preset speed**.
+- **`e`** → Temporarily switch to **1.0× speed**.
+- **`v`** → Temporarily switch to **2.0× speed**.
+- **`z`** → Temporarily switch to your **last saved non-preset speed**.
 
 The extension remembers the *last non-preset speed*, so switching between playback presets does not overwrite your original speed.
 

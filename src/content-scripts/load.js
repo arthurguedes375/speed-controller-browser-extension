@@ -755,12 +755,12 @@
 
             const key = event.key.toLowerCase();
 
-            if (!['g', 'r', 'd', 's', 'v', 'e', 'c'].includes(key)) {
+            if (!['g', 'r', 'd', 's', 'v', 'e', 'z'].includes(key)) {
                 return;
             }
 
             // Does not toggle very fast between 'g' and 'r', and 'v' and 'e'
-            if (event.repeat && ['g', 'r', 'v', 'e', 'c'].includes(key)) {
+            if (event.repeat && ['g', 'r', 'v', 'e', 'z'].includes(key)) {
                 return
             }
 
@@ -800,7 +800,7 @@
                     holdKey(video, state, NORMAL_SPEED)
                     break;
 
-                case 'c':
+                case 'z':
                     holdKey(video, state, state.restoreSpeed)
                     break;
 
@@ -858,12 +858,12 @@
 
             const key = event.key.toLowerCase();
 
-            if (!['v', 'e', 'c'].includes(key)) {
+            if (!['v', 'e', 'z'].includes(key)) {
                 return;
             }
 
             // Does not toggle very fast between 'v' and 'e'
-            if (event.repeat && ['v', 'e', 'c'].includes(key)) {
+            if (event.repeat && ['v', 'e', 'z'].includes(key)) {
                 return
             }
 
@@ -880,7 +880,7 @@
             }
 
 
-            if (key === 'v' || key === 'e' || key === 'c') {
+            if (key === 'v' || key === 'e' || key === 'z') {
                 releaseKey(video, state)
             }
 
